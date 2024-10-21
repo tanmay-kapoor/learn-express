@@ -1,7 +1,5 @@
 import express, { NextFunction, Response } from 'express';
 import { UserRequest } from './types';
-import fs from "fs";
-import path from "path";
 import { users, readDataFile } from './utils';
 
 const router = express.Router();
