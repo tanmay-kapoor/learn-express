@@ -571,5 +571,33 @@
     "email": "harvey@suits.com",
     "username": "harvey",
     "id": "9000"
+  },
+  {
+    "firstName": "Mike",
+    "lastName": "Ross",
+    "email": "mike@suits.com",
+    "username": "mike",
+    "id": "858494"
+  },
+  {
+    "firstName": "Rachel",
+    "lastName": "Zane",
+    "email": "rachel@suits.com",
+    "username": "rachel",
+    "id": "2443435"
+  },
+  {
+    "firstName": "Donna",
+    "lastName": "Paulsen",
+    "email": "donna@suits.com",
+    "username": "donna",
+    "id": "25543"
+  },
+  {
+    "firstName": "Jessica",
+    "lastName": "Pearson",
+    "email": "jessica@suits.com",
+    "username": "jessica",
+    "id": "24532567"
   }
 ]
