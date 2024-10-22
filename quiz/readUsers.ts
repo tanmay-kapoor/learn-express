@@ -1,21 +1,7 @@
-import express, { NextFunction, Response } from 'express';
+import express, { Response } from 'express';
 import { UserRequest } from './types';
-import { users, readDataFile } from './utils';
 
 const router = express.Router();
-
-readDataFile();
-
-router.use((req: UserRequest, res: Response, next: NextFunction) => {
-    if (users) {
-        req.users = users;
-        next();
-    } else {
-        return res.json({
-            error: {message: 'users not found', status: 404}
-        });
-    }
-});
 
 router.get('/usernames', (req: UserRequest, res: Response) => {
     let usernames = req.users?.map((user) => {

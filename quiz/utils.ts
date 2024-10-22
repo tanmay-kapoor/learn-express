@@ -1,10 +1,22 @@
 import fs from "fs";
 import path from "path";
-import { User } from "./types";
+import { User, UserRequest } from "./types";
+import { NextFunction, Response } from "express";
 
 const dataFile = '../data/users.json';
 
 let users: User[];
+
+const addMsgToRequest = (req: UserRequest, res: Response, next: NextFunction) => {
+    if (users) {
+        req.users = users;
+        next();
+    } else {
+        return res.json({
+            error: {message: 'users not found', status: 404}
+        });
+    }
+};
 
 const readDataFile = () => {
     fs.readFile(path.resolve(__dirname, dataFile), (err, data) => {
@@ -14,11 +26,11 @@ const readDataFile = () => {
     });
 };
 
-const writeToDataFile = (newUser: User) => {
+const writeToDataFile = (users: User[] | undefined) => {
     fs.writeFile(path.resolve(__dirname, dataFile), JSON.stringify(users), (err) => {
         if (err) console.log('Failed to write');
         else console.log('User Saved');
     });
 }
 
-export { users, readDataFile, writeToDataFile };
+export { addMsgToRequest, readDataFile, writeToDataFile };
