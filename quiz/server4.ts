@@ -1,4 +1,4 @@
-import express, { Express, NextFunction, Response } from 'express';
+import express, { Express } from 'express';
 import cors from 'cors';
 import readUsers from './readUsers';
 import writeUsers from './writeUsers';
